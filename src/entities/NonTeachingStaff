@@ -1,5 +1,7 @@
 package entities;
 
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
@@ -7,6 +9,8 @@ import javax.persistence.Entity;
 @DiscriminatorValue(value = "NS")
 public class NonTeachingStaff extends Staff {
 	
+	@Basic
+	@Column
 	private String areaExperience;
 	
 	@Override
@@ -23,8 +27,9 @@ public class NonTeachingStaff extends Staff {
 		this.areaExperience = areaExperience;
 	}
 
-	public NonTeachingStaff(int sid, String type, String name) {
-		super(sid, type, name);
+	public NonTeachingStaff(int sid, String name, String areaExperience) {
+		super(sid, name);
+		this.areaExperience = areaExperience;
 		// TODO Auto-generated constructor stub
 	}
 	
