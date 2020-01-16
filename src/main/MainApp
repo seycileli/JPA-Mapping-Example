@@ -1,0 +1,33 @@
+package main;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import entities.NonTeachingStaff;
+import entities.TeachingStaff;
+
+public class MainApp {
+
+	public static void main(String[] args) {
+
+		testing();
+		
+	}
+	
+	public static void testing() {
+
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("AdvancedMapping");
+		EntityManager manager = factory.createEntityManager();
+		manager.getTransaction().begin();
+		TeachingStaff ts = new TeachingStaff(1, "someting", "Mike");
+		NonTeachingStaff ns = new NonTeachingStaff(2, "finding people jobs", "Zamira");
+		
+		manager.persist(ts);
+		manager.persist(ns);
+		
+		manager.getTransaction().commit();
+		manager.close();
+		factory.close();
+	}
+
+}
