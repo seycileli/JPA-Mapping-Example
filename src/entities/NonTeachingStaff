@@ -1,0 +1,39 @@
+package entities;
+
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+
+@Entity
+@DiscriminatorValue(value = "NS")
+public class NonTeachingStaff extends Staff {
+	
+	private String areaExperience;
+	
+	@Override
+	public String toString() {
+		return "NonTeachingStaff [areaExperience=" + areaExperience + "]";
+	}
+	public NonTeachingStaff() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public NonTeachingStaff(String areaExperience) {
+		super();
+		this.areaExperience = areaExperience;
+	}
+
+	public NonTeachingStaff(int sid, String type, String name) {
+		super(sid, type, name);
+		// TODO Auto-generated constructor stub
+	}
+	
+	public String getAreaExperience() {
+		return areaExperience;
+	}
+
+	public void setAreaExperience(String areaExperience) {
+		this.areaExperience = areaExperience;
+	}
+
+}
