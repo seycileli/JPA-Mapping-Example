@@ -19,8 +19,9 @@ public class MainApp {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("AdvancedMapping");
 		EntityManager manager = factory.createEntityManager();
 		manager.getTransaction().begin();
-		TeachingStaff ts = new TeachingStaff(1, "someting", "Mike");
-		NonTeachingStaff ns = new NonTeachingStaff(2, "finding people jobs", "Zamira");
+
+		TeachingStaff ts = new TeachingStaff(11, "Mike", "something", "Computers");
+		NonTeachingStaff ns = new NonTeachingStaff(20, "finding people jobs", "Zamira");
 		
 		manager.persist(ts);
 		manager.persist(ns);
