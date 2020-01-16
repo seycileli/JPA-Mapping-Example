@@ -8,11 +8,10 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@PrimaryKeyJoinColumn(referencedColumnName = "sid")
-//@DiscriminatorValue(value = "TS")
+//@PrimaryKeyJoinColumn(referencedColumnName = "sid")
+@DiscriminatorValue(value = "TS")
 public class TeachingStaff extends Staff {
 	
-	Staff staff = new Staff();
 	@Basic
 	@Column
 	private String qualification;
@@ -25,30 +24,25 @@ public class TeachingStaff extends Staff {
 		// TODO Auto-generated constructor stub
 	}
 
-	public TeachingStaff(int sid, String type, String sName) {
-		super(sid, type, sName);
+	public TeachingStaff(int sid, String name, String qualifaction, String subjectExpertise) {
+		super(sid, name);
+		this.qualification = qualifaction;
+		this.subjectExpertise = subjectExpertise;
 		// TODO Auto-generated constructor stub
 	}
 	
-	public TeachingStaff(Staff staff, String qualification, String subjectExpertise) {
+	public TeachingStaff(String qualification, String subjectExpertise) {
 		super();
-		this.staff = staff;
 		this.qualification = qualification;
 		this.subjectExpertise = subjectExpertise;
 	}
 	
 	@Override
 	public String toString() {
-		return "TeachingStaff [staff=" + staff + ", qualification=" + qualification + ", subjectExpertise="
+		return "TeachingStaff [qualification=" + qualification + ", subjectExpertise="
 				+ subjectExpertise + "]";
 	}
 	
-	public Staff getStaff() {
-		return staff;
-	}
-	public void setStaff(Staff staff) {
-		this.staff = staff;
-	}
 	public String getQualification() {
 		return qualification;
 	}
