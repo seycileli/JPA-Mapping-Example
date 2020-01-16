@@ -28,9 +28,9 @@ public class Staff {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Staff(int sid, String type, String name) {
+	public Staff(int sid, String name) {
 		super();
-		sid = sid;
+		this.sid = sid;
 		this.name = name;
 	}
 	
