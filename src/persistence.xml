@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="AdvancedMapping">
+		<!-- The persistence-unit name can be whatever you like -->
+		<!-- This is the BRAIN of our project -->
+
+		<!-- ADD (CLASSES) ENTITIES OR MODELS CREATED FOR BY ME FOR MY APP -->
+		<!-- here you include every class/ entity - as shown in the example below -->
+		<!-- com.javaprojectjpa.entities.classname above -->
+		<!-- class only has to do with database, only add packages related to it -->
+		<class>entities.Staff</class>
+		<class>entities.TeachingStaff</class>
+		<class>entities.NonTeachingStaff</class>
+
+		<!-- ADD PROPERTIES BELOW -->
+		<!-- database connectivity -->
+		<properties>
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mariadb://localhost:3306/advancedmapping?useSSL=false" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="javax.persistence.jdbc.driver"
+				value="org.mariadb.jdbc.Driver" />
+			<property name="eclipselink.target-database" value="MYSQL" />
+			<property name="eclipselink.logging.level" value="OFF" />
+			<property name="eclipselink.ddl-generation"
+				value="create-tables"/>
+
+			<!-- 
+			
+      https://www.eclipse.org/eclipselink/documentation/2.5/jpa/extensions/p_ddl_generation.htm
+      
+			create-tables 
+			EclipseLink will attempt to execute a CREATE TABLE 
+				SQL for each table. If the table already exists, EclipseLink will follow 
+				the default behavior of your specific database and JDBC driver combination 
+				(when a CREATE TABLE SQL is issued for an already existing table). In most 
+				cases an exception is thrown and the table is not created; the existing table 
+				will be used. EclipseLink will then continue with the next statement. 
+				
+			create-or-extend-tables 
+				EclipseLink will attempt to create tables. If the table exists, EclipseLink 
+				will add any missing columns. 
+				
+			drop-and-create-tables 
+				EclipseLink will attempt 
+				to DROP all tables, then CREATE all tables. If any issues are encountered, 
+				EclipseLink will follow the default behavior of your specific database and 
+				JDBC driver combination, then continue with the next statement This is useful 
+				in development if the schema frequently changes or during testing when the 
+				existing data needs to be cleared. Note: Using drop-and-create will remove 
+				all of the data in the tables when they are dropped. You should never use 
+				option on a production schema that has valuable data in the database. If 
+				the schema changed dramatically, there could be old constraints in the database 
+				that prevent the dropping of the old tables. This may require the old schema 
+				to be dropped through another mechanism -->
+
+		</properties>
+	</persistence-unit>
+</persistence>
